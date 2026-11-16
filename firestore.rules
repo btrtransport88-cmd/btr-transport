@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all for Zero-Trust Firestore Security
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'btrtransport88@gmail.com' ||
+        request.auth.token.email == 'admin@btrtransport.ph'
+      );
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // Users collection (Role-based access & PII protection)
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isSignedIn() && isOwner(userId) && isValidId(userId)
+        && incoming().name is string && incoming().name.size() <= 100
+        && incoming().email is string && incoming().email.size() <= 120
+        && incoming().role in ['passenger', 'driver', 'admin'];
+      allow update: if (isOwner(userId) || isAdmin()) && isValidId(userId);
+      allow delete: if isAdmin();
+    }
+
+    // Bookings collection
+    match /bookings/{bookingId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(bookingId)
+        && incoming().bookingReference is string && incoming().bookingReference.size() <= 32
+        && incoming().passengerName is string && incoming().passengerName.size() <= 100
+        && incoming().totalFare is number;
+      allow update: if isSignedIn() && (
+        isAdmin() ||
+        (incoming().diff(existing()).affectedKeys().hasOnly(['status']))
+      );
+      allow delete: if isAdmin();
+    }
+
+    // Trips collection
+    match /trips/{tripId} {
+      allow read: if true; // Public route & schedule browsing
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Operational tasks (Dispatch & Driver checklists synced with Google Tasks)
+    match /operationalTasks/{taskId} {
+      allow read: if isSignedIn();
+      allow create, update: if isSignedIn() && isValidId(taskId)
+        && incoming().title is string && incoming().title.size() <= 200
+        && incoming().status in ['needsAction', 'completed'];
+      allow delete: if isSignedIn();
+    }
+
+    // Drive backups (Manifest and report archives in Google Drive)
+    match /driveBackups/{backupId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(backupId)
+        && incoming().fileId is string && incoming().fileId.size() <= 128
+        && incoming().fileName is string && incoming().fileName.size() <= 255;
+      allow update, delete: if isAdmin();
+    }
+  }
+}

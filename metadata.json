@@ -1,0 +1,6 @@
+{
+  "name": "BTR Transport - Palawan Shuttle Booking",
+  "description": "Official shuttle booking service connecting Buliluyan, Bataraza and Puerto Princesa City, Palawan with real-time seat selection, electronic QR tickets, and driver manifests.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

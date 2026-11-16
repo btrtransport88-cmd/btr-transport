@@ -1,0 +1,604 @@
+{
+  "payments": [
+    {
+      "id": "pay-1793243388316-7hli6",
+      "bookingId": "BTR-TEST-1001",
+      "bookingReference": "BTR-TEST-1001",
+      "paymentGateway": "paymongo",
+      "gatewaySessionId": "cs_test_1793243388316_586xy2",
+      "gatewayPaymentIntentId": "pi_test_1793243388316",
+      "paymentMethod": "gcash",
+      "amount": 850,
+      "amountCentavos": 85000,
+      "currency": "PHP",
+      "paymentStatus": "refunded",
+      "checkoutUrl": "https://ais-dev-6kqhukkdtiz5h762k7k5pn-872126583021.asia-east1.run.app/?checkout_id=cs_test_1793243388316_586xy2&session_id=cs_test_1793243388316_586xy2&ref=BTR-TEST-1001&mode=sandbox",
+      "clientKey": "client_key_edh21bfa",
+      "createdAt": "2026-10-29T03:09:48.316Z",
+      "updatedAt": "2026-10-29T03:10:33.818Z",
+      "paidAt": "2026-10-29T03:10:15.470Z",
+      "gatewayTransactionRef": "evt_test_001",
+      "refundedAmount": 850,
+      "refundReason": "Passenger cancelled trip before 24h"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "txn-1793243433819-qvbk",
+      "paymentId": "pay-1793243388316-7hli6",
+      "bookingReference": "BTR-TEST-1001",
+      "event": "refund_completed",
+      "status": "refunded",
+      "amount": 850,
+      "reference": "evt_test_001",
+      "gateway": "paymongo",
+      "timestamp": "2026-10-29T03:10:33.819Z",
+      "details": "Refunded ₱850: Passenger cancelled trip before 24h"
+    },
+    {
+      "id": "txn-1793243415470-g38e",
+      "paymentId": "pay-1793243388316-7hli6",
+      "bookingReference": "BTR-TEST-1001",
+      "event": "payment_success",
+      "status": "paid",
+      "amount": 850,
+      "reference": "evt_test_001",
+      "gateway": "paymongo",
+      "timestamp": "2026-10-29T03:10:15.470Z",
+      "details": "Webhook received: payment.paid"
+    },
+    {
+      "id": "txn-1793243399021-6p95",
+      "paymentId": "pay-1793243388316-7hli6",
+      "bookingReference": "BTR-TEST-1001",
+      "event": "payment_success",
+      "status": "paid",
+      "amount": 850,
+      "reference": "pay_1793243399021_verified",
+      "gateway": "paymongo",
+      "timestamp": "2026-10-29T03:09:59.021Z",
+      "details": "Verified payment via PayMongo API. Ref: pay_1793243399021_verified"
+    },
+    {
+      "id": "txn-1793243388316-1wvl",
+      "paymentId": "pay-1793243388316-7hli6",
+      "bookingReference": "BTR-TEST-1001",
+      "event": "checkout_created",
+      "status": "pending",
+      "amount": 850,
+      "reference": "cs_test_1793243388316_586xy2",
+      "gateway": "paymongo",
+      "timestamp": "2026-10-29T03:09:48.316Z",
+      "details": "Created PayMongo checkout session cs_test_1793243388316_586xy2"
+    }
+  ],
+  "bookings": [],
+  "processedWebhookEvents": [
+    "evt_test_001"
+  ],
+  "users": [
+    {
+      "id": "usr-pass-1793245359258-ukfg",
+      "name": "Juan Dela Cruz",
+      "email": "juan.delacruz@example.com",
+      "phone": "0918-123-9999",
+      "role": "passenger",
+      "passwordHash": "$2b$10$h76UeaSc90gKwEjt9/yXsuLJfq6dAtV.BHUCVxFoXxB9x/bfhqU2.",
+      "status": "active",
+      "createdAt": "2026-10-29T03:42:39.258Z",
+      "lastLoginAt": "2026-10-29T03:42:47.218Z",
+      "failedLoginAttempts": 0
+    },
+    {
+      "id": "test-fb-uid-123",
+      "name": "BTR Transport Admin",
+      "email": "btrtransport88@gmail.com",
+      "role": "admin",
+      "passwordHash": "firebase_managed",
+      "status": "active",
+      "createdAt": "2026-10-29T07:21:25.909Z",
+      "lastLoginAt": "2026-10-29T07:21:25.909Z",
+      "failedLoginAttempts": 0
+    },
+    {
+      "id": "test-fb-pass-789",
+      "name": "Juan Dela Cruz",
+      "email": "juandelacruz@gmail.com",
+      "phone": "0918-123-4567",
+      "role": "passenger",
+      "passwordHash": "firebase_managed",
+      "status": "active",
+      "createdAt": "2026-10-29T07:21:35.145Z",
+      "lastLoginAt": "2026-10-29T07:21:35.145Z",
+      "failedLoginAttempts": 0
+    },
+    {
+      "id": "usr-driver-1793542959721-iw7i",
+      "name": "AL-JAZEER LEE",
+      "email": "al-jazeer.lee@deped.gov.ph",
+      "phone": "09050965118",
+      "role": "driver",
+      "driverId": "drv-1000",
+      "passwordHash": "$2b$10$K1pxFJcmfhWG7V65zidMguvgJLnQbAP9LmtIVuYaQbmFNOSg64/Ey",
+      "status": "active",
+      "createdAt": "2026-11-01T14:22:39.721Z",
+      "lastLoginAt": "2026-11-01T14:24:26.587Z",
+      "failedLoginAttempts": 0
+    }
+  ],
+  "sessions": [
+    {
+      "sessionId": "sess-1793245335966-f4f9e26e",
+      "userId": "usr-admin-01",
+      "token": "btr_sec_c17113e6334fe9afd3c8df249d1983f6797e12479e1abe306058e3ab40246480",
+      "role": "admin",
+      "createdAt": "2026-10-29T03:42:15.966Z",
+      "expiresAt": "2026-10-30T03:42:15.966Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245339920-d725dca7",
+      "userId": "usr-drv-01",
+      "token": "btr_sec_2f5e30a3716159ca228ba17ab220674e15d8338725a7849a232897c8421d1984",
+      "role": "driver",
+      "createdAt": "2026-10-29T03:42:19.920Z",
+      "expiresAt": "2026-10-30T03:42:19.920Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245351453-784fc408",
+      "userId": "usr-pass-01",
+      "token": "btr_sec_5fbc238ec336106ffd2bf987f3440c778ecb8ce1d648a658c7b3d04b9bfc9ab1",
+      "role": "passenger",
+      "createdAt": "2026-10-29T03:42:31.453Z",
+      "expiresAt": "2026-10-30T03:42:31.453Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245355650-25e74713",
+      "userId": "usr-admin-01",
+      "token": "btr_sec_baa638d59caa95524ebf6f1a17538af9786a71dbbd9739b38d147386c7b95514",
+      "role": "admin",
+      "createdAt": "2026-10-29T03:42:35.650Z",
+      "expiresAt": "2026-10-30T03:42:35.650Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245359259-b4846c24",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "token": "btr_sec_6874ffd89065625d61e8e63f688a355c39ea9782b12c8b25cec16343eb5745d4",
+      "role": "passenger",
+      "createdAt": "2026-10-29T03:42:39.259Z",
+      "expiresAt": "2026-10-30T03:42:39.259Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": false
+    },
+    {
+      "sessionId": "sess-1793245367218-472d0bb2",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "token": "btr_sec_d73185e50723fc8235bc60ac8901a24fae3dbd899ea9a53455064472621fa820",
+      "role": "passenger",
+      "createdAt": "2026-10-29T03:42:47.218Z",
+      "expiresAt": "2026-10-30T03:42:47.218Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": false
+    },
+    {
+      "sessionId": "sess-1793245371580-3a2dc6e5",
+      "userId": "usr-admin-01",
+      "token": "btr_sec_53cb4024c5db52cb157c11dbdb5e4f812cb39d1b9283bf1a62baf0d761148c09",
+      "role": "admin",
+      "createdAt": "2026-10-29T03:42:51.580Z",
+      "expiresAt": "2026-10-30T03:42:51.580Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245379104-affc4ad5",
+      "userId": "usr-admin-01",
+      "token": "btr_sec_d74927a9c0ab2993aed5da1efd62cc8492109df991c11e49405d78bea9cc5c4c",
+      "role": "admin",
+      "createdAt": "2026-10-29T03:42:59.104Z",
+      "expiresAt": "2026-10-30T03:42:59.104Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793245386582-466678e0",
+      "userId": "usr-admin-01",
+      "token": "btr_sec_bc8622dcac74ab3a9dc00aa75c85a54d2268120ffa78cb647f7cd44be3e939db",
+      "role": "admin",
+      "createdAt": "2026-10-29T03:43:06.582Z",
+      "expiresAt": "2026-10-30T03:43:06.582Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793258485910-511c1c10",
+      "userId": "test-fb-uid-123",
+      "token": "btr_sec_0c4f09dec5148d274a55c943cc94353264993225c575e4b7732c7241d0b76a7c",
+      "role": "admin",
+      "createdAt": "2026-10-29T07:21:25.910Z",
+      "expiresAt": "2026-11-05T07:21:25.910Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793258490600-be0402f7",
+      "userId": "usr-drv-01",
+      "token": "btr_sec_785100601eee1ddacbba99a5c5141e45b768c598ca45619e061b237c271991fc",
+      "role": "driver",
+      "createdAt": "2026-10-29T07:21:30.600Z",
+      "expiresAt": "2026-11-05T07:21:30.600Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793258495146-069bfa5a",
+      "userId": "test-fb-pass-789",
+      "token": "btr_sec_ab71bd4edd131ad0eb97cb838bcb9a83709323ea54a02df4db061315e1f1a02c",
+      "role": "passenger",
+      "createdAt": "2026-10-29T07:21:35.146Z",
+      "expiresAt": "2026-11-05T07:21:35.146Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793542741716-a23988c6",
+      "userId": "usr-driver-1793542741715-vib9",
+      "token": "btr_sec_3da7b9bf06e5856c7ca26cce90248066661c4847d3b8fe6ffd93137bbc66ce0d",
+      "role": "driver",
+      "createdAt": "2026-11-01T14:19:01.716Z",
+      "expiresAt": "2026-11-02T14:19:01.716Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793542746556-8c50bfcf",
+      "userId": "usr-admin-1793542746555-qfg7",
+      "token": "btr_sec_3c390d55c2c72ee0633686036a7c6b9fc2b59216aad978db9eb034cf6ab3826e",
+      "role": "admin",
+      "createdAt": "2026-11-01T14:19:06.556Z",
+      "expiresAt": "2026-11-02T14:19:06.556Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    },
+    {
+      "sessionId": "sess-1793542959723-add58a86",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "token": "btr_sec_095e5474a8f11e2fe084bc458c60426ae5c3d5431f52357197f67e6c013ae11b",
+      "role": "driver",
+      "createdAt": "2026-11-01T14:22:39.723Z",
+      "expiresAt": "2026-11-02T14:22:39.723Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "isValid": false
+    },
+    {
+      "sessionId": "sess-1793543066588-e82fdbf6",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "token": "btr_sec_242fcd02e019d0ab5980defdd450b993a4f2ecd1025ff037f1f7a4b0e0bf0254",
+      "role": "driver",
+      "createdAt": "2026-11-01T14:24:26.588Z",
+      "expiresAt": "2026-11-02T14:24:26.588Z",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "isValid": false
+    },
+    {
+      "sessionId": "sess-1793543478523-fccf8955",
+      "userId": "usr-driver-1793543478521-wv3l",
+      "token": "btr_sec_7f0142d62597638f6bc1d9e36e9f899cc16a31bc9d39acfbf05370c4f92353db",
+      "role": "driver",
+      "createdAt": "2026-11-01T14:31:18.523Z",
+      "expiresAt": "2026-11-02T14:31:18.523Z",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "isValid": true
+    }
+  ],
+  "passwordResetTokens": [
+    {
+      "id": "prt-1793245363270-a4b9a4",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "token": "e371733a9b8967831954738e53ac70556489029b53fee7a9",
+      "expiresAt": "2026-10-29T04:42:43.270Z",
+      "used": true,
+      "createdAt": "2026-10-29T03:42:43.270Z"
+    }
+  ],
+  "authAuditLogs": [
+    {
+      "id": "audit-1793543478522-d6d1c2",
+      "timestamp": "2026-11-01T14:31:18.522Z",
+      "userId": "usr-driver-1793543478521-wv3l",
+      "userEmail": "rolando.driver@btrtransport.ph",
+      "action": "register",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "New driver account registered: Captain Rolando (rolando.driver@btrtransport.ph)"
+    },
+    {
+      "id": "audit-1793543076453-943fc6",
+      "timestamp": "2026-11-01T14:24:36.453Z",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "action": "logout",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "details": "User session logged out successfully: sess-1793543066588-e82fdbf6"
+    },
+    {
+      "id": "audit-1793543066588-a0e989",
+      "timestamp": "2026-11-01T14:24:26.588Z",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "userEmail": "al-jazeer.lee@deped.gov.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "details": "Successful login as role 'driver'"
+    },
+    {
+      "id": "audit-1793543060717-406baa",
+      "timestamp": "2026-11-01T14:24:20.717Z",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "userEmail": "al-jazeer.lee@deped.gov.ph",
+      "action": "login_failed",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "details": "Failed login: Incorrect password (attempt 1)"
+    },
+    {
+      "id": "audit-1793543037813-8741e1",
+      "timestamp": "2026-11-01T14:23:57.813Z",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "action": "logout",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "details": "User session logged out successfully: sess-1793542959723-add58a86"
+    },
+    {
+      "id": "audit-1793542959722-b79eb4",
+      "timestamp": "2026-11-01T14:22:39.722Z",
+      "userId": "usr-driver-1793542959721-iw7i",
+      "userEmail": "al-jazeer.lee@deped.gov.ph",
+      "action": "register",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "details": "New driver account registered: AL-JAZEER LEE (al-jazeer.lee@deped.gov.ph)"
+    },
+    {
+      "id": "audit-1793542746555-4f06c0",
+      "timestamp": "2026-11-01T14:19:06.556Z",
+      "userId": "usr-admin-1793542746555-qfg7",
+      "userEmail": "dispatch.admin@btrtransport.ph",
+      "action": "register",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "New admin account registered: Chief Operations (dispatch.admin@btrtransport.ph)"
+    },
+    {
+      "id": "audit-1793542741716-ae55ab",
+      "timestamp": "2026-11-01T14:19:01.716Z",
+      "userId": "usr-driver-1793542741715-vib9",
+      "userEmail": "testdriver@btrtransport.ph",
+      "action": "register",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "New driver account registered: Test Captain (testdriver@btrtransport.ph)"
+    },
+    {
+      "id": "audit-1793258495146-47894a",
+      "timestamp": "2026-10-29T07:21:35.146Z",
+      "userId": "test-fb-pass-789",
+      "userEmail": "juandelacruz@gmail.com",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Firebase authenticated session synced for role 'passenger' (UID: test-fb-pass-789)"
+    },
+    {
+      "id": "audit-1793258490600-1ea778",
+      "timestamp": "2026-10-29T07:21:30.600Z",
+      "userId": "usr-drv-01",
+      "userEmail": "jun.magbanua@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Firebase authenticated session synced for role 'driver' (UID: test-fb-driver-456)"
+    },
+    {
+      "id": "audit-1793258485911-38e95c",
+      "timestamp": "2026-10-29T07:21:25.911Z",
+      "userId": "test-fb-uid-123",
+      "userEmail": "btrtransport88@gmail.com",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Firebase authenticated session synced for role 'admin' (UID: test-fb-uid-123)"
+    },
+    {
+      "id": "audit-1793257843353-3bf727",
+      "timestamp": "2026-10-29T07:10:43.353Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_failed",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Failed login: Incorrect password (attempt 1)"
+    },
+    {
+      "id": "audit-1793245386604-515a76",
+      "timestamp": "2026-10-29T03:43:06.604Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "account_activated",
+      "ip": "127.0.0.1",
+      "details": "Admin changed account status of 'juan.delacruz@example.com' to 'active'"
+    },
+    {
+      "id": "audit-1793245386582-c3f63b",
+      "timestamp": "2026-10-29T03:43:06.582Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'admin'"
+    },
+    {
+      "id": "audit-1793245382871-953741",
+      "timestamp": "2026-10-29T03:43:02.871Z",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "userEmail": "juan.delacruz@example.com",
+      "action": "unauthorized_access_attempt",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Login rejected: Account is suspended"
+    },
+    {
+      "id": "audit-1793245379208-8b5c7f",
+      "timestamp": "2026-10-29T03:42:59.208Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "account_suspended",
+      "ip": "127.0.0.1",
+      "details": "Admin changed account status of 'juan.delacruz@example.com' to 'suspended'"
+    },
+    {
+      "id": "audit-1793245379106-f0e8aa",
+      "timestamp": "2026-10-29T03:42:59.106Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'admin'"
+    },
+    {
+      "id": "audit-1793245371580-171136",
+      "timestamp": "2026-10-29T03:42:51.580Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'admin'"
+    },
+    {
+      "id": "audit-1793245367219-ca3e2a",
+      "timestamp": "2026-10-29T03:42:47.219Z",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "userEmail": "juan.delacruz@example.com",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'passenger'"
+    },
+    {
+      "id": "audit-1793245363403-130ef9",
+      "timestamp": "2026-10-29T03:42:43.404Z",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "userEmail": "juan.delacruz@example.com",
+      "action": "password_reset_success",
+      "ip": "127.0.0.1",
+      "details": "Password was successfully reset. All active sessions invalidated."
+    },
+    {
+      "id": "audit-1793245363270-9220e7",
+      "timestamp": "2026-10-29T03:42:43.271Z",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "userEmail": "juan.delacruz@example.com",
+      "action": "password_reset_request",
+      "ip": "127.0.0.1",
+      "details": "Password reset token generated: e371733a..."
+    },
+    {
+      "id": "audit-1793245359258-5c6be3",
+      "timestamp": "2026-10-29T03:42:39.258Z",
+      "userId": "usr-pass-1793245359258-ukfg",
+      "userEmail": "juan.delacruz@example.com",
+      "action": "register",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "New passenger registered: Juan Dela Cruz (juan.delacruz@example.com)"
+    },
+    {
+      "id": "audit-1793245355651-6eb399",
+      "timestamp": "2026-10-29T03:42:35.651Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'admin'"
+    },
+    {
+      "id": "audit-1793245351475-47ef9d",
+      "timestamp": "2026-10-29T03:42:31.476Z",
+      "userId": "usr-pass-01",
+      "userEmail": "passenger@gmail.com",
+      "action": "unauthorized_access_attempt",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Forbidden role access attempt: user is 'passenger', required 'admin' for GET /api/admin/users"
+    },
+    {
+      "id": "audit-1793245351453-69fd3c",
+      "timestamp": "2026-10-29T03:42:31.453Z",
+      "userId": "usr-pass-01",
+      "userEmail": "passenger@gmail.com",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'passenger'"
+    },
+    {
+      "id": "audit-1793245344174-92f75b",
+      "timestamp": "2026-10-29T03:42:24.174Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_failed",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Failed login: Incorrect password (attempt 1)"
+    },
+    {
+      "id": "audit-1793245339921-a32445",
+      "timestamp": "2026-10-29T03:42:19.921Z",
+      "userId": "usr-drv-01",
+      "userEmail": "jun.magbanua@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'driver'"
+    },
+    {
+      "id": "audit-1793245335967-b3f7f0",
+      "timestamp": "2026-10-29T03:42:15.967Z",
+      "userId": "usr-admin-01",
+      "userEmail": "admin@btrtransport.ph",
+      "action": "login_success",
+      "ip": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "details": "Successful login as role 'admin'"
+    }
+  ]
+}
